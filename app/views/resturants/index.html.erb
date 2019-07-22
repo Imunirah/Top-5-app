@@ -1,0 +1,22 @@
+<h1>Top 5 Resturants</h1>
+
+
+<table class="table table-striped">
+  <tr>
+    <th></th>
+    <th>Resturant</th>
+    <th>Rate</th>
+    <th>Location</th>
+ 
+  </tr>
+
+  <% @resturants.each do |resturant| %>
+      <tr>
+      <td><%= image_tag(resturant.img, size: "150x110", alt: "Resturant logo") %></td>
+        <td><%= link_to resturant.name, resturant_path(resturant) %></td>
+        <td><%= resturant.rate%></td>
+        <td><%= resturant.location %></td>
+      </tr>
+  <% end %>
+</table>
+
