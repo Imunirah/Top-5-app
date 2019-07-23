@@ -1,7 +1,7 @@
-<%# <h1>Breakfasts#index</h1>
-<p>Find me in app/views/breakfasts/index.html.erb</p> %>
-<h1>Top 5 Breakfasts</h1>
 
+<h1>Top 5 Breakfasts</h1>
+<%= link_to "Add a Breakfast",  breakfasts_path , { :class => "button waves-effect waves-light btn" } %>
+<br><br>
 
 <table class="table table-striped">
   <tr>
@@ -18,6 +18,11 @@
         <td><%= link_to breakfast.name, breakfast_path(breakfast) %></td>
         <td><%= breakfast.rate%></td>
         <td><%= breakfast.location %></td>
+        <td><a class="btn-floating btn-large red" href="<%= edit_breakfast_path(breakfast) %>" >
+           <em class="large material-icons">Edit Breakfast</em>
+          </a>
+        </td>
       </tr>
   <% end %>
+
 </table>
