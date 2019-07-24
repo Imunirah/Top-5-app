@@ -1,4 +1,6 @@
 class CavesController < ApplicationController
+  before_action :is_user, only: [:edit, :destroy, :create, :new]
+    
   def index
     @caves = Cafe.all
   end
@@ -30,6 +32,12 @@ def edit
     redirect_to caves_path
   end
 
+  def is_user
+    if user_signed_in?
+    else 
+      redirect_to root_path
+    end 
+  end 
 end
 
 

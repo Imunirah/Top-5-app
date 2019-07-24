@@ -1,24 +1,26 @@
  <%# <h1>Caves#index</h1>
 <p>Find me in app/views/caves/index.html.erb</p> %>
 
-<h1>Top Five Breakfasts</h1>
+<center> <h1>Top Five Breakfasts</h1> </center>
 <%= link_to "Add a Breakfast",  new_breakfast_path , { :class => "button waves-effect waves-light btn" } %>
 <br><br>
 
 
 <div class="row">
   <% @breakfasts.each do |breakfast| %>
-  <div class="card" style="width: 18rem;"> 
-  <div class="card-body"> 
-    <%= image_tag(breakfast.img, size: "230x180", alt: "Resturant logo")%> 
-    <h5 class="card-title">
+  <div class="col-md-3">
+    <div class="card mb-4">
+  <div class="card-body">
+      <%= image_tag(breakfast.img, width:"100%", height: "200" , alt: "Resturant logo")%>
+      <h5 class="card-title">
      <p> </p>
      <%= link_to breakfast.name, breakfast_path(breakfast) %>
     </h5>
     <p class="card-text">
      Rate:<%= breakfast.rate%>
      <br>
-     Location: <%= breakfast.location %> </p>
+     Location: <%= breakfast.location %> 
+     <br>
      <a class="btn btn-primary" href="<%= edit_breakfast_path(breakfast) %>">
       <i class="large material-icons">Edit</i>
       
@@ -29,8 +31,8 @@
       </tr>
       </div>
       </div>
+      </div>
 
   <% end %>
-
-
+</div>
 

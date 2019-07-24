@@ -1,4 +1,5 @@
 class ResturantsController < ApplicationController
+  before_action :is_user, only: [:edit, :destroy, :create, :new]
     def index
     @resturants = Resturant.all
     end
@@ -27,4 +28,11 @@ class ResturantsController < ApplicationController
   
     redirect_to resturants_path
   end
+
+  def is_user
+    if user_signed_in?
+    else 
+      redirect_to root_path
+    end 
+  end 
 end 
