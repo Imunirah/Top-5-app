@@ -3,6 +3,8 @@
 
 
 <h1>Top 5 Caves</h1>
+<%= link_to "Add a Cafe",  new_cafe_path , { :class => "button waves-effect waves-light btn" } %>
+<br><br>
 
 
 <table class="table table-striped">
@@ -11,6 +13,7 @@
     <th>Caves</th>
     <th>Rate</th>
     <th>Location</th>
+    
  
   </tr>
 
@@ -20,6 +23,17 @@
         <td><%= link_to cafe.name, cafe_path(cafe) %></td>
         <td><%= cafe.rate%></td>
         <td><%= cafe.location %></td>
+        <td><a class="btn-floating btn-large red" href="<%= edit_cafe_path(cafe) %>" >
+      <i class="large material-icons">Edit</i>
+      </a>
+      </td>
+      <td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= cafe.name %>?" data-method="delete" href="/caves/<%= cafe.id %>" rel="nofollow"><i class="large material-icons">Delete </i>
+      </a>
+       </td>
       </tr>
   <% end %>
-</table>
+</table> 
+
+ 
+
+

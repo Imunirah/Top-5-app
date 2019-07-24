@@ -1,5 +1,9 @@
-<h1>Top 5 Resturants</h1>
 
+<%# <h1>Caves#index</h1>
+<p>Find me in app/views/caves/index.html.erb</p> %>
+<h1>Top 5 Resturants</h1>
+<%= link_to "Add a Resturant ", new_resturant_path	 , { :class => "button waves-effect waves-light btn" } %>
+<br><br>
 
 <table class="table table-striped">
   <tr>
@@ -7,16 +11,32 @@
     <th>Resturant</th>
     <th>Rate</th>
     <th>Location</th>
+   
  
   </tr>
 
   <% @resturants.each do |resturant| %>
       <tr>
       <td><%= image_tag(resturant.img, size: "150x110", alt: "Resturant logo") %></td>
-        <td><%= link_to resturant.name, resturant_path(resturant) %></td>
+      <td><%= link_to resturant.name, resturant_path(resturant) %></td>
         <td><%= resturant.rate%></td>
         <td><%= resturant.location %></td>
+         <td><a class="btn-floating btn-large red" href="<%= edit_resturant_path(resturant) %>" >
+	       <i class="large material-icons">Edit</i>
+    			</a>
+    	  </td>
+        <td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= resturant.name %>?" data-method="delete" href="/resturants/<%= resturant.id %>" rel="nofollow"><i class="large material-icons">Delete Resturant</i>
+    	   </a>
+
+      <%# <em class="large material-icons">Edit Resturant</em> %>
+      <%# </a> %>
+       </td>
+
+
       </tr>
   <% end %>
 </table>
+
+
+
 

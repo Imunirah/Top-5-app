@@ -1,0 +1,20 @@
+<%= form_for @cafe do |f| %>
+  <div class="input-field col s6">
+  	<%= f.label :name, 'Name'%>
+  	<%= f.text_field :name%>
+  </div>
+  <div class="input-field col s6">
+  	<%= f.label :location, 'location' %>
+  	<%= f.text_field :location %>
+  </div>
+  <div class="input-field col s6">
+  	<%= f.label :rate, 'rate' %>
+  	<%= f.text_field :rate %>
+  </div>
+  <div class="input-field col s6">
+  	<%= f.label :img, 'Image' %>
+  	<%= f.text_field :img %>
+  </div>
+  <%= f.submit "Submit", :class => "btn waves-effect waves-light" %>
+<% end %>
+
