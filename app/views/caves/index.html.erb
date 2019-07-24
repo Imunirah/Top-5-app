@@ -2,38 +2,39 @@
 <p>Find me in app/views/caves/index.html.erb</p> %>
 
 
-<h1>Top 5 Caves</h1>
+<center> <h1>Top Five Cafes</h1> </center>
 <%= link_to "Add a Cafe",  new_cafe_path , { :class => "button waves-effect waves-light btn" } %>
 <br><br>
 
 
-<table class="table table-striped">
-  <tr>
-    <th></th>
-    <th>Caves</th>
-    <th>Rate</th>
-    <th>Location</th>
-    
- 
-  </tr>
 
+  
+
+<div class="row">
   <% @caves.each do |cafe| %>
-      <tr>
-      <td><%= image_tag(cafe.img, size: "150x110", alt: "Resturant logo") %></td>
-        <td><%= link_to cafe.name, cafe_path(cafe) %></td>
-        <td><%= cafe.rate%></td>
-        <td><%= cafe.location %></td>
-        <td><a class="btn-floating btn-large red" href="<%= edit_cafe_path(cafe) %>" >
+  <div class="col-md-3">
+    <div class="card mb-4"> 
+  <div class="card-body">
+      <%= image_tag(cafe.img, width:"100%", height: "200", alt: "Resturant logo")%>
+      <h5 class="card-title">
+     <p> </p>
+        <%= link_to cafe.name, cafe_path(cafe) %>
+        </h5>
+        <p class="card-text">
+      Rate:<%= cafe.rate%>
+      <br>
+      Location:<%= cafe.location %>
+      <br>
+      <a class="btn btn-primary" href="<%= edit_cafe_path(cafe) %>" >
       <i class="large material-icons">Edit</i>
       </a>
-      </td>
-      <td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= cafe.name %>?" data-method="delete" href="/caves/<%= cafe.id %>" rel="nofollow"><i class="large material-icons">Delete </i>
+
+      <td><a class="btn btn-primary" data-confirm="Are you sure you want to delete <%= cafe.name %>?" data-method="delete" href="/caves/<%= cafe.id %>" rel="nofollow"><i class="large material-icons">Delete </i>
       </a>
-       </td>
       </tr>
+      </div>
+      </div>
   <% end %>
-</table> 
+
 
  
-
-
